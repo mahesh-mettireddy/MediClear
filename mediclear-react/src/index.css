@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  body {
+    @apply bg-brand-dark text-slate-100 font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-brand-accent text-white;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-brand-card/80 backdrop-blur-md border border-slate-700/50 shadow-xl rounded-2xl;
+  }
+  
+  .btn-primary {
+    @apply relative overflow-hidden bg-gradient-to-r from-brand-accent to-brand-cyan text-white font-medium py-3 px-6 rounded-xl shadow-lg transition-all duration-300 transform;
+  }
+  .btn-primary:not(:disabled):hover {
+    @apply shadow-brand-accent/30 -translate-y-0.5;
+  }
+  .btn-primary:not(:disabled):active {
+    @apply translate-y-0;
+  }
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed hover:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply bg-slate-800 text-slate-200 border border-slate-700 font-medium py-3 px-6 rounded-xl transition-all duration-300;
+  }
+  .btn-secondary:hover {
+    @apply bg-slate-700;
+  }
+
+  .input-field {
+    @apply w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 transition-all duration-300 placeholder-slate-500;
+  }
+  .input-field:focus {
+    @apply outline-none ring-2 ring-brand-accent/50 border-brand-accent;
+  }
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a; 
+}
+::-webkit-scrollbar-thumb {
+  background: #334155; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; 
+}
